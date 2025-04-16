@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.integrate import cumtrapz
+from scipy.integrate import cumulative_trapezoid as cumtrapz
 import matplotlib.pyplot as plt
 from orbital_mechanics import compute_position, compute_potential, compute_time_dilation
 from time_dilation import plot_time_dilation, plot_dilation_factor, plot_orbit
@@ -68,18 +68,21 @@ plt.xlabel('Coordinate time t (s)')
 plt.ylabel('Proper time τ (s)')
 plt.legend()
 plt.savefig('proper_time.png')
+plt.close()
 
 plt.figure(figsize=(10, 6))
 plt.plot(t, s_array)
 plt.xlabel('Time t (s)')
 plt.ylabel('Scale factor s')
 plt.savefig('scale_factor.png')
+plt.close()
 
 plt.figure(figsize=(10, 6))
 plt.plot(t, dilation_array)
 plt.xlabel('Time t (s)')
 plt.ylabel('Time dilation factor')
 plt.savefig('dilation_factor.png')
+plt.close()
 
 plt.figure(figsize=(10, 6))
 plt.plot(x_array, y_array)
@@ -87,6 +90,7 @@ plt.xlabel('x (m)')
 plt.ylabel('y (m)')
 plt.title('Anchor Orbit')
 plt.savefig('orbit.png')
+plt.close()
 
 # Plot magnetic field at t=0
-plot_magnetic_field(t[0], x_array[0], y_array[0], z)
+plot_magnetic_field(t[0], x_array[0], y_array[0], 0)
